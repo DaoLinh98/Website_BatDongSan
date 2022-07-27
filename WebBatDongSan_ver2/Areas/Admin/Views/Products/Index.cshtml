@@ -1,0 +1,59 @@
+﻿@model PagedList.Core.IPagedList<WebBatDongSan_ver2.Models.Product>
+@using PagedList.Core.Mvc;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Quản Lý Bài Đăng</h1>
+<p>
+    <a style="float:right; margin-bottom: 1px" asp-area="Admin" asp-controller="Products" asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+
+
+<table class="table table-active">
+    <thead>
+        <tr>
+            <th>Tiêu Đề</th>
+            <th>Khu Vực</th>
+            <th>Diện Tích</th>
+            <th>Giá</th>
+
+            <th>#</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Acreage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+
+                <td>
+                    <a asp-area="Admin" asp-controller="Products" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Edit</a>
+                    <a asp-area="Admin" asp-controller="Products" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+                    <a asp-area="Admin" asp-controller="Products" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@*PAGING HERE call*@
+<div style="color: #212529;; border-radius:10px; height: 38px;
+     padding: 0 31px; aria-label="Page navigation example">
+    <ul style="float:right" class="pagination">
+        <pager class="pager-container" options="@PagedListRenderOptions.Bootstrap4PageNumbersOnly" list="@Model" asp-area="Admin" asp-controller="Products" asp-action="Index"></pager>
+    </ul>
+</div>
+@*PAGING HERE call*@

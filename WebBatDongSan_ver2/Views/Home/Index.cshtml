@@ -1,0 +1,100 @@
+﻿@using PagedList.Core.Mvc;
+@model PagedList.Core.IPagedList<WebBatDongSan_ver2.Models.Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="MAIN index">
+    <div class="container text-white bg-dark">
+        <div class="text-center">
+            <span class="header_text" style="font-size: 1rem; "><strong>Tìm Kiếm Nhà Đất</strong></span>
+        </div>
+        <form asp-controller="Home" asp-action="Index">
+            <table border="0" align="center">
+                <tbody>
+                    <tr>
+                        <td style="text-align:center">
+
+
+                            <select id="thuoctinh1_6" name="addressString"
+                                    asp-items="@ViewBag.KhuVuc" required>
+                                <option value="0" selected>    --Khu vực--</option>
+                            </select>
+
+                            <select id="thuoctinh1_6" name="areaString"
+                                    asp-items="@ViewBag.DienTich " required>
+                                <option value="0" selected>--Diện tích--</option>
+                            </select>
+
+                            <select id="thuoctinh1_6" name="bTypeString"
+                                    asp-items="@ViewBag.Loai " required>
+                                <option value="0" selected>--Loại hình kinh doanh--</option>
+                            </select>
+
+                            <select id="thuoctinh1_6" name="priceString"
+                                    asp-items="@ViewBag.KhoangGia " required>
+                                <option value="0" selected>--Khoang gia--</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center">
+                            <p style="text-align:center;padding-top:5px">
+                                <input placeholder="Nhập vào tìm kiếm" type="text" name="searchString" />
+                                <input type="submit" value="Tìm kiếm" />
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <div class="padding ">
+            <div id="form_timkiem_6">
+                <div class="otimkiem">&nbsp; &nbsp;&nbsp; </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+<hr>
+<h2 class="text-center">TIN MỚI ĐĂNG</h2>
+<hr>
+<div class="MAIN">
+    <div class="container" id="mainrows">
+
+
+
+        <div class="addrow">
+            <div style="margin:10px 0px" class=" row text-center mt-4">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4 pb-1 pb-md-0">
+                        <div class="card">
+                            <img class="card-img-top" src="~/HomeAssets/@item.PathImage" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Name</h5>
+                                @*<p class="card-text">@item.Price<b>$</b></p>*@
+                                <p class="card-text">@item.Acreage m2 </p>
+                                <p class="card-text"><span style="text-align: left">@item.Status</span></p>
+                                <a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-primary">Chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*PAGING HERE call*@
+<div style="color: #212529;; border-radius:10px; height: 38px;
+     padding: 0 31px; aria-label="Page navigation example">
+    <ul style="float:right" class="pagination">
+        <pager class="pager-container" options="@PagedListRenderOptions.Bootstrap4PageNumbersOnly" list="@Model" asp-controller="Home" asp-action="Index"></pager>
+    </ul>
+</div>
+@*PAGING HERE call*@
+
+

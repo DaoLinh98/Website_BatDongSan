@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAs/jPWC0eHkWZstGuFigFZwAAAAACAAAAAAAQZgAAAAEAACAAAADtnaLR3Ip8IdnQQwDLTTdUm2eVEhDIj0oshJvdualwFQAAAAAOgAAAAAIAACAAAACfFH/lJAm3e+IeoU/8cxr3zdOfUs5bu/OZAMNda1o/3iAAAABhX2liDd0gs5qC+GnWVa6TEjpnERNoHyfXtIzvzzrPmkAAAADNgIaEaMcBl7U20B1xZn69eIH7qgRxGbtk3EGBv9QLO3ORc+HInqc6EwZMlKounYs7gajLy5LH/JWSr4U9MVzl</EncryptedPassword>
+    <History>True|2022-07-27T01:59:49.7120019Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DbConnection">
+      <Value>Server=LAPTOP-C9TBLS6L\SQLEXPRESS%3bUser ID=sa%3bPassword=123456%3bDatabase=BatDongSan_DB%3bTrusted_Connection=True%3bMultipleActiveResultSets=True</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

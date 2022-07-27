@@ -1,0 +1,31 @@
+﻿@model WebBatDongSan_ver2.Models.Product
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container text-white bg-dark">
+    <div class="text-center">
+        <span class="header_text" style="font-size: 2.5rem; "><strong>Chi Tiết Bài Đăng</strong></span>
+    </div>
+
+    <div class="padding ">
+        <div id="form_timkiem_6">
+            <div class="otimkiem">&nbsp; &nbsp;&nbsp; </div>
+        </div>
+    </div>
+
+</div>
+<hr>
+<div>
+    <div class="card-body">
+        <h5 class="card-title"><b>Mô Tả Bài Đăng:</b>  @Model.Name</h5>
+        <p><b>Giá:</b> @Model.Price<b>$</b></p>
+        <p><b>Diện Tích:</b> @Model.Acreage <b>m2</b></p>
+        <p><b>Khu vực:</b> @Model.Status</p>
+        <p title=""><b>Nội dung bài đăng:</b></p>
+        <p>@Html.Raw(@Model.Description) </p>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Trở về Trang chủ</a>
+    </div>
+</div>
+<hr>
